@@ -29,3 +29,21 @@ $(function() {
         $("body").toggleClass("menu-opened");
     });
 });
+
+// 現在のスクロール位置を取得する
+var scrollpos = window.pageYOffset
+// メニューが開いたことを示すクラスをhtmlに付与する
+//html.classList.add('is-menuOpen')
+// bodyのtopにスクロール位置を付与する
+document.body.style.top = scrollpos * -1 + 'px'
+// ウィンドウの高さを取得
+bodyHeight = window.innerHeight
+// 取得した高さを、メニューに付与する（ヘッダーの高さを引いた数）
+menu.style.height = bodyHeight //- headerHeight + 'px'
+
+// メニューが開いたことを示すクラスをはずす
+//html.classList.remove('is-menuOpen')
+// スクロール位置を開いた時の位置へ戻す
+window.scrollTo(0, scrollpos)
+//メニューを閉じる（高さを0にする）
+menu.style.height = 0
